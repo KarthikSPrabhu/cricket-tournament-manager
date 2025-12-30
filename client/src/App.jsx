@@ -9,6 +9,7 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import TeamManagement from './pages/admin/TeamManagement';
 import PlayerManagement from './pages/admin/PlayerManagement';
+import MatchManagement from './pages/admin/MatchManagement';
 import './App.css';
 
 // Protected Route Component
@@ -85,6 +86,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <PlayerManagement />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/matches" 
+              element={
+                <ProtectedRoute>
+                  <MatchManagement />
                 </ProtectedRoute>
               } 
             />

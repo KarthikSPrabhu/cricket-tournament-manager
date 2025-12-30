@@ -207,10 +207,7 @@ const AdminDashboard = () => {
           
           <button 
             className={`nav-item ${activeTab === 'matches' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('matches');
-              navigate('/admin/matches');
-            }}
+            onClick={() => navigate('/admin/matches')}
           >
             <FaCalendarAlt /> <span>Matches</span>
           </button>
