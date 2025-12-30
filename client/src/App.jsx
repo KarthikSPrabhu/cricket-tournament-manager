@@ -7,6 +7,8 @@ import PointsTable from './pages/PointsTable';
 import Statistics from './pages/Statistics';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
+import TeamManagement from './pages/admin/TeamManagement';
+import PlayerManagement from './pages/admin/PlayerManagement';
 import './App.css';
 
 // Protected Route Component
@@ -67,6 +69,22 @@ function App() {
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/teams" 
+              element={
+                <ProtectedRoute>
+                  <TeamManagement />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/players" 
+              element={
+                <ProtectedRoute>
+                  <PlayerManagement />
                 </ProtectedRoute>
               } 
             />
