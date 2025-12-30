@@ -1,0 +1,286 @@
+.points-table-page {
+  padding: 30px 0;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.qualification {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.qual-1 {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.qual-2 {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.table-container {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  overflow-x: auto;
+}
+
+.points-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.points-table thead {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+}
+
+.points-table th {
+  padding: 18px 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.points-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.points-table th.sortable:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.points-table th.sortable span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.points-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s ease;
+}
+
+.points-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.points-table tbody tr.qualification-zone {
+  background: linear-gradient(90deg, rgba(46, 204, 113, 0.1), transparent);
+  border-left: 4px solid #27ae60;
+}
+
+.points-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.points-table td {
+  padding: 18px 15px;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.position {
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.position .trophy {
+  color: #f1c40f;
+  font-size: 1.2rem;
+}
+
+.team-name {
+  text-align: left;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.team-logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.points {
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 1.1rem;
+}
+
+.nrr {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.nrr.positive {
+  color: #27ae60;
+}
+
+.nrr.negative {
+  color: #e74c3c;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.form-result {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.form-result.w {
+  background: #27ae60;
+  color: white;
+}
+
+.form-result.l {
+  background: #e74c3c;
+  color: white;
+}
+
+.form-result.t {
+  background: #f1c40f;
+  color: #000;
+}
+
+.form-result.n {
+  background: #7f8c8d;
+  color: white;
+}
+
+.table-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.info-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-card h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-card li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.info-card li:before {
+  content: "•";
+  color: #3498db;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .table-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .points-table {
+    font-size: 0.9rem;
+  }
+  
+  .points-table th,
+  .points-table td {
+    padding: 12px 8px;
+  }
+  
+  .team-logo {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .form-result {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+}
