@@ -10,6 +10,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import TeamManagement from './pages/admin/TeamManagement';
 import PlayerManagement from './pages/admin/PlayerManagement';
 import MatchManagement from './pages/admin/MatchManagement';
+import ScoringDashboard from './components/scoring/ScoringDashboard';
 import './App.css';
 
 // Protected Route Component
@@ -94,6 +95,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <MatchManagement />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/scoring/:matchId" 
+              element={
+                <ProtectedRoute>
+                  <ScoringDashboard />
                 </ProtectedRoute>
               } 
             />

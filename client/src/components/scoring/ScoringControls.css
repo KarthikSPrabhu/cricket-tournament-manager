@@ -1,0 +1,261 @@
+.scoring-controls {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.controls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.controls-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.history-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.btn.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.btn.icon-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.btn.icon-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Quick Actions Grid */
+.quick-actions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .quick-actions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.action-btn {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Action button colors */
+.action-btn.dot {
+  color: #7f8c8d;
+  border-color: #bdc3c7;
+}
+
+.action-btn.single {
+  color: #27ae60;
+  border-color: #27ae60;
+}
+
+.action-btn.double {
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.action-btn.triple {
+  color: #f39c12;
+  border-color: #f39c12;
+}
+
+.action-btn.boundary {
+  color: #3498db;
+  border-color: #3498db;
+  font-weight: 700;
+}
+
+.action-btn.five {
+  color: #9b59b6;
+  border-color: #9b59b6;
+}
+
+.action-btn.six {
+  color: #e74c3c;
+  border-color: #e74c3c;
+  font-weight: 700;
+}
+
+.action-btn.wide {
+  color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.action-btn.no-ball {
+  color: #f39c12;
+  border-color: #f39c12;
+}
+
+.action-btn.bye {
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.action-btn.leg-bye {
+  color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+/* Wicket Actions */
+.wicket-actions {
+  margin-bottom: 20px;
+}
+
+.wicket-actions h4 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+}
+
+.wicket-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .wicket-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.wicket-btn {
+  padding: 12px;
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  background: white;
+  color: #e74c3c;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.wicket-btn:hover {
+  background: #e74c3c;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Wicket button variations */
+.wicket-btn.bowled {
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.wicket-btn.caught {
+  border-color: #f39c12;
+  color: #f39c12;
+}
+
+.wicket-btn.lbw {
+  border-color: #3498db;
+  color: #3498db;
+}
+
+.wicket-btn.run-out {
+  border-color: #9b59b6;
+  color: #9b59b6;
+}
+
+.wicket-btn.stumped {
+  border-color: #2ecc71;
+  color: #2ecc71;
+}
+
+.wicket-btn.hit-wicket {
+  border-color: #1abc9c;
+  color: #1abc9c;
+}
+
+/* Custom Scoring */
+.custom-scoring {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.custom-scoring h4 {
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-size: 1rem;
+}
+
+.custom-input {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-input input,
+.custom-input select {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.custom-input input:focus,
+.custom-input select:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.custom-input .btn.primary {
+  padding: 10px 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.custom-input .btn.primary:hover {
+  background: #2980b9;
+  transform: translateY(-2px);
+}
