@@ -18,22 +18,37 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => console.log('MongoDB connection error:', err));
 
-// Basic route
-app.get('/', (req, res) => {
-  res.json({ message: 'Cricket Tournament API is running' });
-});
-
-// Import routes (will create these later)
-// const adminRoutes = require('./routes/admin');
-// const teamRoutes = require('./routes/teams');
-// const matchRoutes = require('./routes/matches');
-// const playerRoutes = require('./routes/players');
+// Import routes
+const authRoutes = require('./routes/auth');
+const teamRoutes = require('./routes/teams');
+const playerRoutes = require('./routes/players');
+const matchRoutes = require('./routes/matches');
+const tournamentRoutes = require('./routes/tournament');
+const adminRoutes = require('./routes/admin');
 
 // Use routes
-// app.use('/api/admin', adminRoutes);
-// app.use('/api/teams', teamRoutes);
-// app.use('/api/matches', matchRoutes);
-// app.use('/api/players', playerRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/teams', teamRoutes);
+app.use('/api/players', playerRoutes);
+app.use('/api/matches', matchRoutes);
+app.use('/api/tournament', tournamentRoutes);
+app.use('/api/admin', adminRoutes);
+
+// Basic route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'Cricket Tournament API is running',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      teams: '/api/teams',
+      players: '/api/players',
+      matches: '/api/matches',
+      tournament: '/api/tournament',
+      admin: '/api/admin'
+    }
+  });
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -44,4 +59,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  console.log(`API Base URL: http://localhost:${PORT}`);
 });
