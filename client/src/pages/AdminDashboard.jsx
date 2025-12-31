@@ -214,10 +214,7 @@ const AdminDashboard = () => {
           
           <button 
             className={`nav-item ${activeTab === 'tournament' ? 'active' : ''}`}
-            onClick={() => {
-              setActiveTab('tournament');
-              navigate('/admin/tournament');
-            }}
+            onClick={() => navigate('/admin/tournament')}
           >
             <FaTrophy /> <span>Tournament</span>
           </button>

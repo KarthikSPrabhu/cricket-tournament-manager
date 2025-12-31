@@ -1,0 +1,221 @@
+.tournament-management {
+  padding: 30px 0;
+}
+
+.management-header {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  color: #2980b9;
+  gap: 12px;
+}
+
+.management-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.management-header p {
+  color: #7f8c8d;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.management-view {
+  margin-bottom: 40px;
+}
+
+.view-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.view-tab {
+  padding: 12px 24px;
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.view-tab:hover {
+  background: #e9ecef;
+}
+
+.view-tab.active {
+  background: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.view-content {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.settings-view {
+  padding: 40px;
+}
+
+.settings-card {
+  text-align: center;
+  padding: 60px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px dashed #bdc3c7;
+}
+
+.settings-card h3 {
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+}
+
+.settings-card p {
+  color: #7f8c8d;
+  margin: 0 0 30px 0;
+  font-size: 1.1rem;
+}
+
+.coming-soon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid #e0e0e0;
+}
+
+.coming-soon-icon {
+  font-size: 48px;
+  color: #bdc3c7;
+}
+
+.coming-soon span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #7f8c8d;
+}
+
+.management-guide {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.management-guide h3 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.3rem;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+  transition: all 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+}
+
+.step-content p {
+  color: #7f8c8d;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .management-header,
+  .settings-card {
+    padding: 20px;
+  }
+  
+  .view-tabs {
+    flex-direction: column;
+  }
+  
+  .view-tab {
+    justify-content: center;
+  }
+  
+  .settings-view {
+    padding: 20px;
+  }
+  
+  .guide-steps {
+    grid-template-columns: 1fr;
+  }
+}
