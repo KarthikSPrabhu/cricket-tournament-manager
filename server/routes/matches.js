@@ -5,6 +5,7 @@ const Team = require('../models/Team');
 const Player = require('../models/Player');
 const authMiddleware = require('../middleware/auth');
 const { body, validationResult } = require('express-validator');
+const { matchEvents } = require('../socket/events');
 
 // Get all matches
 router.get('/', async (req, res) => {
@@ -267,6 +268,9 @@ router.post('/', authMiddleware(['admin']), [
 
     await newMatch.save();
 
+    // Emit socket event for new match
+    matchEvents.emitMatchCreated(newMatch._id);
+
     res.status(201).json({
       message: 'Match created successfully',
       match: await newMatch.populate('team1 team2', 'name teamId logo')
@@ -341,6 +345,9 @@ router.put('/:id/status', authMiddleware(['admin', 'scorer']), [
     }
     
     await match.save();
+
+    // Emit socket event for status update
+    matchEvents.emitMatchStatusChange(match._id, status, match);
 
     res.json({
       message: 'Match status updated successfully',
@@ -528,10 +535,16 @@ router.post('/:id/balls', authMiddleware(['admin', 'scorer']), [
         });
         
         match.status = 'innings-break';
+        
+        // Emit innings break event
+        matchEvents.emitInningsBreak(match._id, currentInnings);
       } else {
         // Match completed
         match.status = 'completed';
         match.result = await calculateMatchResult(match);
+        
+        // Emit match completed event
+        matchEvents.emitMatchEnd(match._id, match.result);
       }
     }
 
@@ -541,8 +554,18 @@ router.post('/:id/balls', authMiddleware(['admin', 'scorer']), [
     await updatePlayerStats(batsman._id, runs, 1, wicket);
     await updatePlayerStats(bowler._id, 0, 0, 0, 1/6, runs + (extraType ? extras : 0), wicket ? 1 : 0);
 
+    // Emit socket event for ball scored
+    matchEvents.emitBallScored(match._id, {
+      ...ballData,
+      matchId: match._id,
+      inningsNumber: match.currentInnings,
+      totalRuns: currentInnings.totalRuns,
+      totalWickets: currentInnings.totalWickets
+    });
+
     res.json({
       message: 'Ball added successfully',
+      ball: ballData,
       match: await match.populate([
         { path: 'innings.batting.player', select: 'name playerId' },
         { path: 'innings.bowling.player', select: 'name playerId' },
@@ -661,6 +684,10 @@ router.put('/:id/result', authMiddleware(['admin']), [
     // Update team stats
     await updateTeamStats(match, winner._id, winType);
 
+    // Emit socket events
+    matchEvents.emitMatchEnd(match._id, match.result);
+    matchEvents.emitPointsUpdate(match.tournament);
+
     res.json({
       message: 'Match result updated successfully',
       match: await match.populate('result.winner result.playerOfMatch', 'name teamId playerId')
@@ -722,6 +749,9 @@ router.delete('/:id', authMiddleware(['admin']), async (req, res) => {
     // Soft delete
     match.isActive = false;
     await match.save();
+
+    // Emit socket event
+    matchEvents.emitMatchDeleted(match._id);
 
     res.json({
       message: 'Match deleted successfully'
